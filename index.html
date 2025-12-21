@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Choronometer</title>
+	<link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
+
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+	<div class="flex flex-col justify-between  w-screen h-[100svh]" id="app">
+
+
+		<div id="chronometer" class="flex flex-col justify-center items-center w-full h-auto">
+
+			<h1 class="font-sans font-bold text-3xl p-10 mb-20" id="prueba">
+				CHORONOMETER
+			</h1>
+
+			<div class="flex justify-center items-center">
+				<div class="horas flex bg-slate-300 p-2 rounded-sm shadow-md">
+					<div class="text-5xl" id="m2">0</div>
+					<div class="text-5xl" id="m1">0</div>
+				</div>
+				<div>
+					<span class="p-1 text-xl font-bold">
+						:
+					</span>
+				</div>
+				<div class="minutos flex bg-slate-300 p-2 rounded-sm shadow-md">
+					<div class="text-5xl" id="s2">0</div>
+					<div class="text-5xl" id="s1">0</div>
+				</div>
+				<div>
+					<span class="p-1 text-xl font-bold">
+						:
+					</span>
+				</div>
+				<div class="segundos flex bg-slate-300 p-2 rounded-sm shadow-md">
+					<div class="text-5xl" id="ms1">0</div>
+					<div class="text-5xl" id="ms2">0</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+		<div class="flex gap-7 w-full h-min justify-center items-center">
+
+			<div class="">
+				<button>
+					<i class='bxr  bxs-stopwatch'></i> 
+				</button>
+			</div>
+
+			<div class="p-10">
+				<button class="text-white font-bold" id="init">
+					 <i class='bxr  bx-play text-5xl bg-blue-400 rounded-full p-3'></i>
+				</button>
+			</div>
+
+			<div>
+				<button class="text-xl" id="fin">
+					<i class='bxr  bxs-rotate-cw'></i> 
+				</button>
+			</div>
+
+		</div>
+
+
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
