@@ -1,0 +1,17 @@
+/*
+	  _    _
+     / \  / \
+    /   \/   \      Viper.
+   |  (0)(0)  |    -------
+   |__________|
+   
+   */
+
+body{
+	overflow: hidden;
+	background-color: rgb(245, 245, 245);
+}
+
+.unshow{
+	display: none;
+}

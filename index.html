@@ -6,43 +6,61 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Choronometer</title>
 	<link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
-
+	<link rel="stylesheet" href="styles.css">
 	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
 
+	<!--
+	
+	
+	  _    _
+     / \  / \
+    /   \/   \      Viper.
+   |  (0)(0)  |    -------
+   |__________|
+	 
+	 -->
+
+
+
 	<div class="flex flex-col justify-between  w-screen h-[100svh]" id="app">
 
 
 		<div id="chronometer" class="flex flex-col justify-center items-center w-full h-auto">
-
-			<h1 class="font-sans font-bold text-3xl p-10 mb-20" id="prueba">
-				CHORONOMETER
-			</h1>
+			<div class="relative">
+				<h1 class="font-sans font-bold text-3xl p-10 mb-20" id="prueba">
+				Chronometer
+				<span class="text-nowrap text-sm absolute top-16 right-5">
+					<sub>By <span class="font-mono bg-black text-white p-0.5 rounded-sm" >Vi<span class="text-lime-500">p</span>er.</span></sub>
+				</span>
+				<span class="text-gray-300 text-nowrap text-sm absolute top-8 right-22 p-0.5">
+					Prealpha 0.0.1
+				</span>
+				</h1>
+			</div>
+			
 
 			<div class="flex justify-center items-center">
-				<div class="horas flex bg-slate-300 p-2 rounded-sm shadow-md">
-					<div class="text-5xl" id="m2">0</div>
-					<div class="text-5xl" id="m1">0</div>
+				<div class="horas flex border-gray-300 p-2 rounded-sm shadow-lg" id="m_div">
+				
 				</div>
 				<div>
 					<span class="p-1 text-xl font-bold">
 						:
 					</span>
 				</div>
-				<div class="minutos flex bg-slate-300 p-2 rounded-sm shadow-md">
-					<div class="text-5xl" id="s2">0</div>
-					<div class="text-5xl" id="s1">0</div>
+				<div class="minutos flex border-gray-300 p-2 rounded-sm shadow-lg" id="s_div">
+
 				</div>
 				<div>
 					<span class="p-1 text-xl font-bold">
 						:
 					</span>
 				</div>
-				<div class="segundos flex bg-slate-300 p-2 rounded-sm shadow-md">
-					<div class="text-5xl" id="ms1">0</div>
-					<div class="text-5xl" id="ms2">0</div>
+				<div class="segundos flex border-gray-300 p-2 rounded-sm shadow-lg" id="ms_div">
+
 				</div>
 			</div>
 
@@ -53,28 +71,36 @@
 
 		<div class="flex gap-7 w-full h-min justify-center items-center">
 
-			<div class="">
-				<button>
+			<div>
+				<button class="text-xl bg-green-200 py-3 px-4 rounded-lg text-black  cursor-pointer" id="save_time">
 					<i class='bxr  bxs-stopwatch'></i> 
 				</button>
 			</div>
 
-			<div class="p-10">
-				<button class="text-white font-bold" id="init">
+			<div class="p-6" id="div_start">
+				<button class="text-white font-bold cursor-pointer" id="init">
 					 <i class='bxr  bx-play text-5xl bg-blue-400 rounded-full p-3'></i>
 				</button>
 			</div>
 
+			<div class="p-6 unshow" id="div_stop">
+				<button class="text-white font-bold cursor-pointer" id="end">
+					 <i class='bxr  bx-pause text-5xl bg-red-400 rounded-full p-3 '></i>
+				</button>
+			</div>
+
 			<div>
-				<button class="text-xl" id="fin">
+				<button class="text-xl bg-yellow-200 py-3 px-4 rounded-lg cursor-pointer" id="restart">
 					<i class='bxr  bxs-rotate-cw'></i> 
 				</button>
 			</div>
 
 		</div>
 
-
+		
 	</div>
+
+
 
 	<script src="script.js"></script>
 </body>
