@@ -11,6 +11,7 @@
 
 const stop_div = document.getElementById("div_stop");
 const start_div = document.getElementById("div_start");
+const grid_save = document.getElementById("grid-save")
 
 const minutos_div = document.getElementById("m_div")
 const segundos_div = document.getElementById("s_div")
@@ -21,7 +22,35 @@ const detener = document.getElementById("end")
 const restart = document.getElementById("restart")
 const save = document.getElementById("save_time");
 
-restart.setAttribute('disabled', '');
+// establecemos las variables para la funcion futura, de save-timer
+
+let pause = 0
+
+save.addEventListener("click", () => {
+	pause += 1
+	grid_save.innerHTML += `
+
+		<div class=" border-2 border-gray-200 shadow-md rounded-md py-2 px-5 flex justify-between items-center transition-all ease-out duration-300 opacity-0" id="${pause}">
+				<div>
+					<b>Pausa ${pause}</b>
+					<br>
+					<span>
+						${m1}:${s1}:${ms1}
+					</span>
+				</div>
+				<div>
+					<b class="text-3xl text-gray-700">
+						${m1}:${s1}:${ms1}
+					</b>
+				</div>
+		</div>
+	`
+	const fade = setTimeout( () => {
+		document.getElementById(`${pause}`).style.opacity = 1
+	}, 100)
+	
+});
+
 // establecemos variables de digitos cronometrales
 
 // milisegundos
@@ -54,6 +83,11 @@ start.addEventListener("click", () => {
 
 	start_div.classList.add("unshow")
 	stop_div.classList.remove("unshow")
+	restart.classList.add("text-black-200")
+	save.style.color = "gray"
+	restart.setAttribute("disabled", "")
+	save.removeAttribute("disabled", "")
+
 
 
 
@@ -62,7 +96,11 @@ start.addEventListener("click", () => {
 		start_div.classList.remove("unshow")
 		stop_div.classList.add("unshow")
 		clearInterval(incremento_ms)
-		restart.removeAttribute("disabled")
+		restart.removeAttribute("disabled", "")
+		save.setAttribute("disabled", "")
+		save.style.color = ""
+		restart.style.color = "gray"
+
 	});
 
 	
@@ -107,6 +145,9 @@ restart.addEventListener("click", () => {
 		s1 = "00"
 		// minutos
 		m1 = "00"
+		grid_save.innerHTML = ""
+		restart.style.color = ""
+		pause = 0
 		recargar()
 });
 
@@ -114,8 +155,7 @@ restart.addEventListener("click", () => {
 // funcion para guardar tiempo (por ahora no funciona, proximamente...)
 
 
-save.addEventListener("click", () => {
-	alert("Funcion disponible en la Update Alpha V.1")
-});
 
 recargar()
+
+
