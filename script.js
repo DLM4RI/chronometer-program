@@ -28,7 +28,7 @@ let pause = 0
 
 save.addEventListener("click", () => {
 	pause += 1
-	grid_save.insertAdjacentHTML("afterbegin",`
+	grid_save.insertAdjacentHTML("afterbegin", `
 		
 		<div class=" border-2 border-gray-200 shadow-md rounded-md py-2 px-5 flex justify-between items-center transition-all ease-out duration-600 opacity-0 w-full" id="${pause}">
 		<div>
@@ -45,15 +45,19 @@ save.addEventListener("click", () => {
 		</div>
 		</div>
 		`);
-		const fade = setTimeout( () => {
-			document.getElementById(`${pause}`).style.opacity = 1
-		}, 100)
-		
+	const fade = setTimeout(() => {
+		document.getElementById(`${pause}`).style.transform = "scale(1)"
+		document.getElementById(`${pause}`).style.opacity = 1
 
-	});
-	
-	// establecemos variables de digitos cronometrales
-	
+	}, 100)
+
+	document.getElementById(`${pause}`).style.transform = "scale(0.4)"
+
+
+});
+
+// establecemos variables de digitos cronometrales
+
 // milisegundos
 let ms1 = "00"
 // segundos
@@ -95,6 +99,7 @@ start.addEventListener("click", () => {
 
 	//funcion detener
 	detener.addEventListener("click", () => {
+
 		start_div.classList.remove("unshow")
 		stop_div.classList.add("unshow")
 		clearInterval(incremento_ms)
@@ -102,10 +107,9 @@ start.addEventListener("click", () => {
 		save.setAttribute("disabled", "")
 		save.style.color = ""
 		restart.style.color = "gray"
-
 	});
 
-	
+
 
 	const incremento_ms = setInterval(() => {
 		recargar()
@@ -113,12 +117,12 @@ start.addEventListener("click", () => {
 			ms1 = "00"
 			s1 = parseInt(s1) + 1
 			s1 = s1.toString().padStart(2, "0")
-		} else if (s1 > 59 ) {
+		} else if (s1 > 59) {
 			s1 = "00"
 			m1 = parseInt(m1) + 1
 			m1 = m1.toString().padStart(2, "0")
 		}
-		 else {
+		else {
 			ms1 = parseInt(ms1) + 1
 			ms1 = ms1.toString().padStart(2, "0")
 		}
@@ -142,15 +146,31 @@ function recargar() {
 
 
 restart.addEventListener("click", () => {
-		ms1 = "00"
-		// segundos
-		s1 = "00"
-		// minutos
-		m1 = "00"
-		grid_save.innerHTML = ""
-		restart.style.color = ""
-		pause = 0
-		recargar()
+
+
+	ms1 = "00"
+	// segundos
+	s1 = "00"
+	// minutos
+	m1 = "00"
+	grid_save.innerHTML = ""
+	restart.style.color = ""
+	restart.setAttribute("disabled", "")
+	pause = 0
+	recargar()
+
+
+	restart.style.transform = "rotate(0deg)"
+
+	restart.addEventListener("click", setTimeout(() => {
+		restart.style.transform = "rotate(360deg)"
+	}, 100));
+
+	
+
+
+
+
 });
 
 
