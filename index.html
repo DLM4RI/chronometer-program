@@ -37,13 +37,13 @@
 									class="text-lime-500">p</span>er.</span></sub>
 					</span>
 					<span class="text-gray-300 text-nowrap text-sm absolute top-8 right-22 p-0.5">
-						Prealpha 0.1.2
+						Prealpha 0.2
 					</span>
 				</h1>
 			</div>
 
 
-			<div class="flex justify-center items-center">
+			<div class="flex justify-center items-center font-semibold">
 				<div class="horas flex border-gray-300 p-2 rounded-xl shadow-lg" id="m_div">
 
 				</div>
@@ -80,25 +80,25 @@
 		<div class="flex gap-7 w-full h-min justify-center items-center">
 
 			<div>
-				<button class="text-3xl  py-3 px-4 rounded-lg cursor-pointer text-gray-300" id="restart" disabled>
+				<button class="text-3xl  py-3 px-4 rounded-lg cursor-pointer text-gray-300 transition-all ease-linear " id="restart" disabled>
 					<i class='bxr  bxs-rotate-cw mt-3'></i>
 				</button>
 			</div>
 
-			<div class="p-6" id="div_start">
+			<div class="p-6 transition-all ease-in-out duration-500" id="div_start">
 				<button class="text-white font-bold cursor-pointer ml-2" id="init">
 					<i class='bxr  bx-play text-5xl bg-black rounded-full p-3 shadow-lg'></i>
 				</button>
 			</div>
 
-			<div class="p-6 unshow" id="div_stop">
-				<button class="text-white font-bold cursor-pointer ml-2" id="end">
+			<div class="p-6 unshow transition-all ease-in-out duration-500" id="div_stop">
+				<button class="text-white font-bold cursor-pointer ml-2 " id="end">
 					<i class='bxr  bx-pause text-5xl bg-gray-400 rounded-full p-3 shadow-lg'></i>
 				</button>
 			</div>
 
 			<div>
-				<button class="text-3xl  py-3 px-4 rounded-lg cursor-pointer text-gray-300 flex " id="save_time" disabled>
+				<button class="text-3xl  py-3 px-3 rounded-full cursor-pointer text-gray-300 flex transition-all ease-linear " id="save_time" disabled>
 					<i class='bxr  bx-timer'></i>
 				</button>
 			</div>
@@ -111,6 +111,7 @@
 
 
 	<script src="script.js"></script>
+	<script src="animations.js"></script>
 </body>
 
 </html>

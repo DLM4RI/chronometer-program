@@ -29,30 +29,31 @@ let pause = 0
 save.addEventListener("click", () => {
 	pause += 1
 	grid_save.insertAdjacentHTML("afterbegin",`
-
+		
 		<div class=" border-2 border-gray-200 shadow-md rounded-md py-2 px-5 flex justify-between items-center transition-all ease-out duration-600 opacity-0 w-full" id="${pause}">
-				<div>
-					<b>Pausa ${pause}</b>
-					<br>
-					<span>
-						${m1}:${s1}:${ms1}
-					</span>
-				</div>
-				<div>
-					<b class="text-3xl text-gray-700">
-						${m1}:${s1}:${ms1}
-					</b>
-				</div>
+		<div>
+		<b>Pausa ${pause}</b>
+		<br>
+		<span>
+		${m1}:${s1}:${ms1}
+		</span>
 		</div>
-	`);
-	const fade = setTimeout( () => {
-		document.getElementById(`${pause}`).style.opacity = 1
-	}, 100)
+		<div>
+		<b class="text-3xl text-gray-700">
+		${m1}:${s1}:${ms1}
+		</b>
+		</div>
+		</div>
+		`);
+		const fade = setTimeout( () => {
+			document.getElementById(`${pause}`).style.opacity = 1
+		}, 100)
+		
+
+	});
 	
-});
-
-// establecemos variables de digitos cronometrales
-
+	// establecemos variables de digitos cronometrales
+	
 // milisegundos
 let ms1 = "00"
 // segundos
@@ -85,6 +86,7 @@ start.addEventListener("click", () => {
 	stop_div.classList.remove("unshow")
 	restart.classList.add("text-black-200")
 	save.style.color = "gray"
+	restart.style.color = ""
 	restart.setAttribute("disabled", "")
 	save.removeAttribute("disabled", "")
 
@@ -157,5 +159,7 @@ restart.addEventListener("click", () => {
 
 
 recargar()
+
+
 
 

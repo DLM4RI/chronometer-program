@@ -23,3 +23,4 @@ body{
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Chrome, Edge, Safari */
 }
+
