@@ -30,7 +30,7 @@ save.addEventListener("click", () => {
 	pause += 1
 	grid_save.insertAdjacentHTML("afterbegin",`
 
-		<div class=" border-2 border-gray-200 shadow-md rounded-md py-2 px-5 flex justify-between items-center transition-all ease-out duration-600 opacity-0" id="${pause}">
+		<div class=" border-2 border-gray-200 shadow-md rounded-md py-2 px-5 flex justify-between items-center transition-all ease-out duration-600 opacity-0 w-full" id="${pause}">
 				<div>
 					<b>Pausa ${pause}</b>
 					<br>
