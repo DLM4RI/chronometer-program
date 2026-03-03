@@ -65,6 +65,10 @@ let s1 = "00"
 // minutos
 let m1 = "00"
 
+// Variable para rastrear si el cronometro está corriendo
+let corriendo = false
+let incremento_ms
+
 // crear funcion de incremento de cronometro
 
 // algoritmo a usar :
@@ -84,8 +88,8 @@ let m1 = "00"
 
 
 // funcion inicio
-start.addEventListener("click", () => {
-
+function inicio() {
+	corriendo = true
 	start_div.classList.add("unshow")
 	stop_div.classList.remove("unshow")
 	restart.classList.add("text-black-200")
@@ -94,24 +98,7 @@ start.addEventListener("click", () => {
 	restart.setAttribute("disabled", "")
 	save.removeAttribute("disabled", "")
 
-
-
-
-	//funcion detener
-	detener.addEventListener("click", () => {
-
-		start_div.classList.remove("unshow")
-		stop_div.classList.add("unshow")
-		clearInterval(incremento_ms)
-		restart.removeAttribute("disabled", "")
-		save.setAttribute("disabled", "")
-		save.style.color = ""
-		restart.style.color = "gray"
-	});
-
-
-
-	const incremento_ms = setInterval(() => {
+	incremento_ms = setInterval(() => {
 		recargar()
 		if (ms1 >= 99) {
 			ms1 = "00"
@@ -127,6 +114,34 @@ start.addEventListener("click", () => {
 			ms1 = ms1.toString().padStart(2, "0")
 		}
 	}, 10);
+}
+
+// funcion detener
+function finalizar() {
+	corriendo = false
+	start_div.classList.remove("unshow")
+	stop_div.classList.add("unshow")
+	clearInterval(incremento_ms)
+	restart.removeAttribute("disabled", "")
+	save.setAttribute("disabled", "")
+	save.style.color = ""
+	restart.style.color = "gray"
+}
+
+start.addEventListener("click", inicio)
+
+detener.addEventListener("click", finalizar)
+
+// Agregar funcionalidad con la barra espaciadora (Space Bar)
+document.addEventListener("keydown", (event) => {
+	if (event.code === "Space") {
+		event.preventDefault() // Prevenir scroll de la página
+		if (corriendo) {
+			finalizar()
+		} else {
+			inicio()
+		}
+	}
 })
 
 
@@ -142,7 +157,6 @@ function recargar() {
 		<div class="text-5xl" id="ms1">${ms1}</div>`
 }
 
-//funcion reiniciar
 
 
 restart.addEventListener("click", () => {
